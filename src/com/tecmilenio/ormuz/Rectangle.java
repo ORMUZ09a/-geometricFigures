@@ -1,19 +1,19 @@
 package com.tecmilenio.ormuz;
 
-public class EquilateralTriangle implements Shape{
+public class Rectangle implements Shape{
     private double sideLength;   // cm
     private double heightLength; // cm
 
-    public EquilateralTriangle(double sideLength) {
+    public Rectangle(double sideLength,double heigthLegth) {
         this.sideLength = sideLength;
-        this.heightLength = calculateHeightLength();
+        this.heightLength = heigthLegth;
     }
-
     public void setSideLength(double sideLength) {
         this.sideLength = sideLength;
-        this.heightLength = calculateHeightLength();
     }
-
+    public void setHeightLength(double heightLength) {
+        this.heightLength = heightLength;
+    }
     public double getSideLength() {
         return sideLength;
     }
@@ -24,14 +24,11 @@ public class EquilateralTriangle implements Shape{
 
     @Override
     public double area() {
-        return (sideLength * heightLength) / 2.0;
+        return sideLength * heightLength;
     }
 
     @Override
     public double perimeter() {
-        return sideLength * 3.0;
-    }
-    private double calculateHeightLength() {
-        return (Math.sqrt(3.0) * this.sideLength) / 2.0;
+        return (2 * sideLength) + (2 * heightLength);
     }
 }
